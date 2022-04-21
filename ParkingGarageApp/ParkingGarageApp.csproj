@@ -67,9 +67,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="customerChoice.aspx" />
+    <Content Include="dailyInformation.aspx" />
+    <Content Include="map.aspx" />
+    <Content Include="monthlyInformation.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="customerChoice.aspx.cs">
+      <DependentUpon>customerChoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customerChoice.aspx.designer.cs">
+      <DependentUpon>customerChoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dailyInformation.aspx.cs">
+      <DependentUpon>dailyInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dailyInformation.aspx.designer.cs">
+      <DependentUpon>dailyInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="map.aspx.cs">
+      <DependentUpon>map.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="map.aspx.designer.cs">
+      <DependentUpon>map.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="monthlyInformation.aspx.cs">
+      <DependentUpon>monthlyInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="monthlyInformation.aspx.designer.cs">
+      <DependentUpon>monthlyInformation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
