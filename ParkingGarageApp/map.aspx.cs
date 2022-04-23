@@ -68,11 +68,6 @@ namespace ParkingGarageApp
             btn50.Visible = true;
         }
 
-        protected void backBtn_Click(object sender, EventArgs e)
-        {
-            //Response.Redirect
-        }
-
         protected void secondFloorBtn_Click(object sender, EventArgs e)
         {
 
