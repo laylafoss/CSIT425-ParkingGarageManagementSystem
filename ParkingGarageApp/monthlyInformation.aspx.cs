@@ -16,7 +16,7 @@ namespace ParkingGarageApp
 
         protected void continueBtn_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(lastTxt.Text + firstTxt.Text + licenseTxt.Text))
+            if (String.IsNullOrEmpty(lastTxt.Text + firstTxt.Text + licenseTxt.Text + phoneNumberTxt.Text + emailTxt.Text))
             {
                 invalidInputLabel.Text = "Invalid input, all required fields must be filled.";
                 invalidInputLabel.Visible = true;
@@ -29,6 +29,16 @@ namespace ParkingGarageApp
             else if (licenseTxt.Text.Length > 8)
             {
                 invalidInputLabel.Text = "Invalid input, license plate number too long.";
+                invalidInputLabel.Visible = true;
+            }
+            else if (phoneNumberTxt.MaxLength < 10)
+            {
+                invalidInputLabel.Text = "Invalid input, invalid phone number.";
+                invalidInputLabel.Visible = true;
+            }
+            else if (phoneNumberTxt.MaxLength > 10)
+            {
+                invalidInputLabel.Text = "Invalid input, invalid phone number.";
                 invalidInputLabel.Visible = true;
             }
             else

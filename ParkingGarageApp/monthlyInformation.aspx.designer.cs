@@ -51,6 +51,24 @@ namespace ParkingGarageApp
         protected global::System.Web.UI.WebControls.TextBox licenseTxt;
 
         /// <summary>
+        /// emailTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox emailTxt;
+
+        /// <summary>
+        /// phoneNumberTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox phoneNumberTxt;
+
+        /// <summary>
         /// invalidInputLabel control.
         /// </summary>
         /// <remarks>

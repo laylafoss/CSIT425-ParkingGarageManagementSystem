@@ -19,6 +19,10 @@
             <br />
             License Plate Number:&nbsp;
             <asp:TextBox ID="licenseTxt" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            Phone Number:&nbsp;
+            <asp:TextBox ID="phoneNumberTxt" runat="server"></asp:TextBox>
         </div>
         <p>
             <asp:Label ID="invalidInputLabel" runat="server" Text="Invalid Input" Visible="False" ForeColor="#CC0000"></asp:Label>
