@@ -68,9 +68,57 @@ namespace ParkingGarageApp
             btn50.Visible = true;
         }
 
+        private bool secondFloorBtnClicked = false;
         protected void secondFloorBtn_Click(object sender, EventArgs e)
         {
+            secondFloorBtnClicked = true;
+            
+            if (secondFloorBtnClicked)
+            {
+                btn1.Visible = true;
+                btn2.Visible = true;
+                btn3.Visible = true;
+                btn4.Visible = true;
+                btn5.Visible = true;
+                btn6.Visible = true;
+                btn7.Visible = true;
+                btn8.Visible = true;
+                btn9.Visible = true;
+                btn10.Visible = true;
+                btn11.Visible = true;
+                btn12.Visible = true;
+                btn13.Visible = true;
+                btn14.Visible = true;
+                btn15.Visible = true;
+                btn16.Visible = true;
+                btn17.Visible = true;
+                btn18.Visible = true;
+                btn19.Visible = true;
+                btn20.Visible = true;
+                btn1.Text = "201";
+                btn2.Text = "202";
+                btn3.Text = "203";
+                btn4.Text = "204";
+                btn5.Text = "205";
+                btn6.Text = "206";
+                btn7.Text = "207";
+                btn8.Text = "208";
+                btn9.Text = "209";
+                btn10.Text = "210";
+                btn11.Text = "211";
+                btn12.Text = "212";
+                btn13.Text = "213";
+                btn14.Text = "214";
+                btn15.Text = "215";
+                btn16.Text = "216";
+                btn17.Text = "217";
+                btn18.Text = "218";
+                btn19.Text = "219";
+                btn20.Text = "220";
 
+            }
+           
+            
         }
 
         protected void thirdFloorBtn_Click(object sender, EventArgs e)

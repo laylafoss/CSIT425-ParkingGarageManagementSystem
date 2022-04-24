@@ -16,7 +16,7 @@ namespace ParkingGarageApp
 
         protected void continueBtn_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(lastTxt.Text + firstTxt.Text + licenseTxt.Text))
+            if (String.IsNullOrEmpty(lastTxt.Text + firstTxt.Text + licenseTxt.Text + phoneNumberTxt.Text + emailTxt.Text))
             {
                 invalidInputLabel.Text = "Invalid input, all required fields must be filled.";
                 invalidInputLabel.Visible = true;

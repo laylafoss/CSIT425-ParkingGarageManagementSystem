@@ -21,7 +21,15 @@
             <asp:TextBox ID="licenseTxt" runat="server"></asp:TextBox>
         </p>
         <p>
-            //MORE INFOMATION TO BE ADDED</p>
+            Email Address:&nbsp;&nbsp;
+            <asp:TextBox ID="emailTxt" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            Phone Number:&nbsp; <asp:TextBox ID="phoneNumberTxt" runat="server"></asp:TextBox>
+        </p>
+        <p>
+
+        </p>
         <p>
             <asp:Label ID="invalidInputLabel" runat="server" Text="Invalid Input" Visible="False" ForeColor="#CC0000"></asp:Label>
         </p>
