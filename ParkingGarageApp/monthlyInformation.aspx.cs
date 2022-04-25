@@ -31,19 +31,19 @@ namespace ParkingGarageApp
                 invalidInputLabel.Text = "Invalid input, license plate number too long.";
                 invalidInputLabel.Visible = true;
             }
-            else if (phoneNumberTxt.MaxLength < 10)
+            else if (phoneNumberTxt.Text.Length < 10)
             {
                 invalidInputLabel.Text = "Invalid input, invalid phone number.";
                 invalidInputLabel.Visible = true;
             }
-            else if (phoneNumberTxt.MaxLength > 10)
+            else if (phoneNumberTxt.Text.Length > 10)
             {
                 invalidInputLabel.Text = "Invalid input, invalid phone number.";
                 invalidInputLabel.Visible = true;
             }
             else
             {
-                Response.Redirect("map.aspx");
+                Response.Redirect("startingMap.aspx");
             }
         }
 

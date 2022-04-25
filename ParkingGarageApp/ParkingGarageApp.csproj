@@ -67,13 +67,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="floor1.aspx" />
     <Content Include="customerChoice.aspx" />
     <Content Include="dailyInformation.aspx" />
-    <Content Include="map.aspx" />
+    <Content Include="floor2.aspx" />
     <Content Include="monthlyInformation.aspx" />
+    <Content Include="startingMap.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="floor1.aspx.cs">
+      <DependentUpon>floor1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="floor1.aspx.designer.cs">
+      <DependentUpon>floor1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="customerChoice.aspx.cs">
       <DependentUpon>customerChoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -88,12 +97,12 @@
     <Compile Include="dailyInformation.aspx.designer.cs">
       <DependentUpon>dailyInformation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="map.aspx.cs">
-      <DependentUpon>map.aspx</DependentUpon>
+    <Compile Include="floor2.aspx.cs">
+      <DependentUpon>floor2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="map.aspx.designer.cs">
-      <DependentUpon>map.aspx</DependentUpon>
+    <Compile Include="floor2.aspx.designer.cs">
+      <DependentUpon>floor2.aspx</DependentUpon>
     </Compile>
     <Compile Include="monthlyInformation.aspx.cs">
       <DependentUpon>monthlyInformation.aspx</DependentUpon>
@@ -103,6 +112,13 @@
       <DependentUpon>monthlyInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="startingMap.aspx.cs">
+      <DependentUpon>startingMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="startingMap.aspx.designer.cs">
+      <DependentUpon>startingMap.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
