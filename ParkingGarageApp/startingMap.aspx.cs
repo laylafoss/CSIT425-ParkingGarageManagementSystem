@@ -36,7 +36,7 @@ namespace ParkingGarageApp
 
         protected void fourthFloorBtn_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("floor4.aspx");
+            Response.Redirect("floor4.aspx");
         }
 
         protected void fifthFloorBtn_Click(object sender, EventArgs e)

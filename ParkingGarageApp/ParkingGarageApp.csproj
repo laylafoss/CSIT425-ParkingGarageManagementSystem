@@ -71,6 +71,8 @@
     <Content Include="customerChoice.aspx" />
     <Content Include="dailyInformation.aspx" />
     <Content Include="floor2.aspx" />
+    <Content Include="floor3.aspx" />
+    <Content Include="floor4.aspx" />
     <Content Include="floor5.aspx" />
     <Content Include="monthlyInformation.aspx" />
     <Content Include="startingMap.aspx" />
@@ -104,6 +106,20 @@
     </Compile>
     <Compile Include="floor2.aspx.designer.cs">
       <DependentUpon>floor2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="floor3.aspx.cs">
+      <DependentUpon>floor3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="floor3.aspx.designer.cs">
+      <DependentUpon>floor3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="floor4.aspx.cs">
+      <DependentUpon>floor4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="floor4.aspx.designer.cs">
+      <DependentUpon>floor4.aspx</DependentUpon>
     </Compile>
     <Compile Include="floor5.aspx.cs">
       <DependentUpon>floor5.aspx</DependentUpon>

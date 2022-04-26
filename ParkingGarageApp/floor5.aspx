@@ -22,9 +22,7 @@
         &nbsp;<asp:Button ID="btn209" runat="server" Text="509" Visible="False" />
         &nbsp;<asp:Button ID="btn210" runat="server" Text="510" Visible="False" />
         <p>
-        <br />
-        <br />
-&nbsp;
+        &nbsp;&nbsp;
         <asp:Button ID="btn211" runat="server" Text="511" Visible="False" />
         &nbsp;<asp:Button ID="btn212" runat="server" Text="512" Visible="False" />
         &nbsp;<asp:Button ID="btn213" runat="server" Text="513" Visible="False" />
