@@ -15,11 +15,11 @@
         &nbsp;&nbsp;
         <asp:Button ID="secondFloorBtn" runat="server" Text="FLOOR 2" Height="61px" Width="150px" OnClick="secondFloorBtn_Click" />
         &nbsp;&nbsp;
-        <asp:Button ID="thirdFloorBtn" runat="server" Text="FLOOR 3" Height="61px" Width="150px" />
+        <asp:Button ID="thirdFloorBtn" runat="server" Text="FLOOR 3" Height="61px" Width="150px" OnClick="thirdFloorBtn_Click" />
         &nbsp;&nbsp;
-        <asp:Button ID="fourthFloorBtn" runat="server" Text="FLOOR 4" Height="61px" Width="150px" />
+        <asp:Button ID="fourthFloorBtn" runat="server" Text="FLOOR 4" Height="61px" Width="150px" OnClick="fourthFloorBtn_Click" />
         &nbsp;&nbsp;
-        <asp:Button ID="fifthFloorBtn" runat="server" Text="FLOOR 5" Height="61px" Width="150px" />
+        <asp:Button ID="fifthFloorBtn" runat="server" Text="FLOOR 5" Height="61px" Width="150px" OnClick="fifthFloorBtn_Click" />
         </div>
     </form>
 </body>
