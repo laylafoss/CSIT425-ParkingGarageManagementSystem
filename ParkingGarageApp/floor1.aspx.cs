@@ -9,8 +9,6 @@ namespace ParkingGarageApp
 {
     public partial class app : System.Web.UI.Page
     {
-        //private bool firstFloorButtonClicked = false;
-        //private bool secondFloorButtonClicked = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
