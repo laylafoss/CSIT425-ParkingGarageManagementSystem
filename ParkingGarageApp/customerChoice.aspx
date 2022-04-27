@@ -16,8 +16,9 @@
             <br />
         </div>
         <asp:Button ID="monthlyBtn" runat="server" Text="MONTHLY" Height="45px" OnClick="monthlyBtn_Click" Width="140px" />
-    </form>
     <p>
-        still need to hide admin button</p>
-</body>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/adminPage.aspx">Administrator Access</asp:HyperLink>
+        </p>
+    </form>
+    </body>
 </html>
