@@ -10,7 +10,7 @@
 
 namespace ParkingGarageApp
 {
-    public partial class adminPage
+    public partial class adminPage1
     {
 
         /// <summary>

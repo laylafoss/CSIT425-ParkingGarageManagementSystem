@@ -17,7 +17,7 @@
         </div>
         <asp:Button ID="monthlyBtn" runat="server" Text="MONTHLY" Height="45px" OnClick="monthlyBtn_Click" Width="140px" />
     <p>
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/adminPage.aspx">Administrator Access</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/adminPageLogin.aspx">Administrator Access</asp:HyperLink>
         </p>
     </form>
     </body>
