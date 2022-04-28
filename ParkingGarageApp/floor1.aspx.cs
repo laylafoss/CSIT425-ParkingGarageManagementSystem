@@ -15,12 +15,31 @@ namespace ParkingGarageApp
         protected void Page_Load(object sender, EventArgs e)
         {
             int[] arr = new int[50];
+            Button[] buttons = new Button[50];
+            buttons[0] = btn1;
+            buttons[1] = btn2;
+            buttons[2] = btn3;
+            buttons[3] = btn4;
+            buttons[4] = btn5;
+            foreach (Button button in buttons)
+            {
+                if (button == null)
+                {
+                    continue;
+                }
+                if (button.Text == "103")
+                {
+                    button.BackColor = System.Drawing.Color.Red;
+                } else
+                {
+                    button.BackColor = System.Drawing.Color.Green;
+                }
+            }
             int count = 1;
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-           // using (MySqlConnection conn = new MySqlConnection(connStr))
-            //
-                /* testing for reading updated parkingspace DB, not currently working as wanted 
-                 * 
+           using (MySqlConnection conn = new MySqlConnection(connStr))
+
+            {     
                 conn.Open();
                 string sql = "select * from dailyparking.parkingspace where customer_lname is null or customer_lname = '';";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -44,7 +63,7 @@ namespace ParkingGarageApp
                 ListBox1.Items.Add(i.ToString());
             }
             
-            */
+            
             btn1.Visible = true;
             btn2.Visible = true;
             btn3.Visible = true;
