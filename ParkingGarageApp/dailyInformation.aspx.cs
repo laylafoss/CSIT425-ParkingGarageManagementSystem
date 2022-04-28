@@ -1,4 +1,5 @@
 ﻿using System;
+using DataBaseConnector;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,7 @@ namespace ParkingGarageApp
 {
     public partial class dailyInformation : System.Web.UI.Page
     {
+        ParkingSpace parkingSpace = new ParkingSpace();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -43,6 +45,11 @@ namespace ParkingGarageApp
             }
             else
             {
+                
+                parkingSpace.ParkingspaceLName = lastTxt.Text;
+                parkingSpace.ParkingspaceFName = firstTxt.Text;
+                parkingSpace.ParkingspacePlate = licenseTxt.Text;
+                parkingSpace.ParkingspaceNumber = phoneNumberTxt.Text;
                 Response.Redirect("startingMap.aspx");
             }
         }

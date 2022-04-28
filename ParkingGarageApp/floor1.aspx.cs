@@ -1,4 +1,6 @@
 ﻿using System;
+using MySql.Data.MySqlClient;
+using DataBaseConnector;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,37 @@ namespace ParkingGarageApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int[] arr = new int[50];
+            int count = 1;
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+           // using (MySqlConnection conn = new MySqlConnection(connStr))
+            //{
+                /* testing for reading updated parkingspace DB, not currently working as wanted 
+                 * 
+                conn.Open();
+                string sql = "select * from dailyparking.parkingspace where customer_lname is null or customer_lname = '';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (count <= 50)
+                {
+                    reader.Read();
+                    if (reader.GetInt32("parkingspace_id") == count + 100)
+                    {
+                        arr[count-1] = count + 100;   
+                    } else
+                    {
+                        arr[count - 1] = 0;
+                    }
+                    count++;
+                }
+                conn.Close();
+            }
+            foreach(int i in arr)
+            {
+                ListBox1.Items.Add(i.ToString());
+            }
+            
+            */
             btn1.Visible = true;
             btn2.Visible = true;
             btn3.Visible = true;

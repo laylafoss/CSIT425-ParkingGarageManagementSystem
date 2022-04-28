@@ -76,6 +76,7 @@
         <p>
             <asp:Button ID="backBtn" runat="server" OnClick="backBtn_Click" Text="Back" />
         </p>
+        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
     </form>
 </body>
 </html>

@@ -213,6 +213,12 @@
   <ItemGroup>
     <Folder Include="Floors\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataBaseConnector\ParkingGarage.csproj">
+      <Project>{8a2755ca-a804-42b8-9fbf-fc7756f89cd9}</Project>
+      <Name>ParkingGarage</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
