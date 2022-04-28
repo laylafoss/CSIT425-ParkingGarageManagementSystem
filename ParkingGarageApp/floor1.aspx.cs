@@ -18,7 +18,7 @@ namespace ParkingGarageApp
             int count = 1;
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
            // using (MySqlConnection conn = new MySqlConnection(connStr))
-            //{
+            //
                 /* testing for reading updated parkingspace DB, not currently working as wanted 
                  * 
                 conn.Open();

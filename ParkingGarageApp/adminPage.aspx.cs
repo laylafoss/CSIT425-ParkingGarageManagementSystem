@@ -35,7 +35,7 @@ namespace ParkingGarageApp
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (MySqlConnection cn = new MySqlConnection(connStr))
             {
-                string sql = "select * from dailyparking.parkingspace where ;";
+                string sql = "select * from dailyparking.parkingspace;";
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
                 cn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
