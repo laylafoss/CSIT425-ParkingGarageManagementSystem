@@ -7,15 +7,30 @@ using System.Threading.Tasks;
 
 namespace DataBaseConnector
 {
-    public class ParkingSpace
+    class ParkingSpace
     {
-        //public ParkingSpace() { }
-        public string ParkingspaceID { get; set; }
-        public string ParkingspaceLName { get; set; }
-        public string ParkingspaceFName { get; set; }
-        public string ParkingspacePlate { get; set; }
-        public string ParkingspaceNumber { get; set; }
-        public string ParkingspaceMonthlyId { get; set; }
+        private string parkingSpaceId;
+        public string parkingSpaceLName;
+        private string parkingSpaceFname;
+        private string parkingSpacePlate;
+        private string parkingSpaceNum;
+        private string parkingSpaceMonthlyId;
+        public ParkingSpace() { }
+        public ParkingSpace(string id, string lnanme, string fname, string plate, string num, string mnthlyid)
+        {
+            this.parkingSpaceId = id;
+            this.parkingSpaceLName = lnanme;
+            this.parkingSpaceFname = fname;
+            this.parkingSpacePlate = plate;
+            this.parkingSpaceNum = num;
+            this.parkingSpaceMonthlyId = mnthlyid;
+        }
+        public string ParkingspaceID { get { return parkingSpaceId; }  set { parkingSpaceId = value; }  }
+        public string ParkingspaceLName { get { return parkingSpaceLName;  } set { parkingSpaceLName = value;  } }
+        public string ParkingspaceFName { get { return parkingSpaceFname;  } set { parkingSpaceFname = value; } }
+        public string ParkingspacePlate { get { return parkingSpacePlate; } set { parkingSpacePlate = value; } }
+        public string ParkingspaceNum { get { return parkingSpaceNum; } set { parkingSpaceNum = value; } }
+        public string ParkingspaceMonthlyId { get { return parkingSpaceMonthlyId; } set { parkingSpaceMonthlyId = value; } }
     }
     public class MonthlyCustomer
     {

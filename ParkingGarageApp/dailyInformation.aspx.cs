@@ -1,5 +1,4 @@
 ﻿using System;
-using DataBaseConnector;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +9,7 @@ namespace ParkingGarageApp
 {
     public partial class dailyInformation : System.Web.UI.Page
     {
-        ParkingSpace parkingSpace = new ParkingSpace();
+         
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -18,6 +17,7 @@ namespace ParkingGarageApp
 
         protected void continueBtn_Click(object sender, EventArgs e)
         {
+            //ParkingSpace parkingSpace = new ParkingSpace();
             if (String.IsNullOrEmpty(lastTxt.Text + firstTxt.Text + licenseTxt.Text + phoneNumberTxt.Text))
             {
                 invalidInputLabel.Text = "Invalid input, all required fields must be filled.";
@@ -45,11 +45,9 @@ namespace ParkingGarageApp
             }
             else
             {
-                
-                parkingSpace.ParkingspaceLName = lastTxt.Text;
-                parkingSpace.ParkingspaceFName = firstTxt.Text;
-                parkingSpace.ParkingspacePlate = licenseTxt.Text;
-                parkingSpace.ParkingspaceNumber = phoneNumberTxt.Text;
+                HttpCookie cookie = new HttpCookie("Last");
+                cookie.Value = lastTxt.Text;
+                Response.Cookies.Add(cookie);
                 Response.Redirect("startingMap.aspx");
             }
         }

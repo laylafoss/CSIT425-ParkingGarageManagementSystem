@@ -5,13 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+   
 </head>
 <body>
+  
     <form id="form1" runat="server">
+         
         <div>
             Floor 1<br />
         </div>
-        &nbsp;&nbsp;<asp:Button ID="btn1" runat="server" Text="101" Visible="False" OnClick="btn1_Click" />
+        &nbsp;&nbsp;<asp:Button ID="btn1" runat="server" Text="101" Visible="False" />
         &nbsp;<asp:Button ID="btn2" runat="server" Text="102" Visible="False" />
         &nbsp;<asp:Button ID="btn3" runat="server" Text="103" Visible="False" />
         &nbsp;<asp:Button ID="btn4" runat="server" Text="104" Visible="False" />
@@ -76,7 +79,6 @@
         <p>
             <asp:Button ID="backBtn" runat="server" OnClick="backBtn_Click" Text="Back" />
         </p>
-        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
     </form>
 </body>
 </html>

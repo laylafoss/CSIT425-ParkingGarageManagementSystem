@@ -1,153 +1,171 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
-using DataBaseConnector;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
+
 namespace ParkingGarageApp
 {
     public partial class app : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            int[] arr = new int[50];
+            int currentBtn;
+            string avail;
             Button[] buttons = new Button[50];
             buttons[0] = btn1;
             buttons[1] = btn2;
             buttons[2] = btn3;
             buttons[3] = btn4;
             buttons[4] = btn5;
+            buttons[5] = btn6;
+            buttons[6] = btn7;
+            buttons[7] = btn8;
+            buttons[8] = btn9;
+            buttons[9] = btn10;
+            buttons[10] = btn11;
+            buttons[11] = btn12;
+            buttons[12] = btn13;
+            buttons[13] = btn14;
+            buttons[14] = btn15;
+            buttons[15] = btn16;
+            buttons[16] = btn17;
+            buttons[17] = btn18;
+            buttons[18] = btn19;
+            buttons[19] = btn20;
+            buttons[20] = btn21;
+            buttons[21] = btn22;
+            buttons[22] = btn23;
+            buttons[23] = btn24;
+            buttons[24] = btn25;
+            buttons[25] = btn26;
+            buttons[26] = btn27;
+            buttons[27] = btn28;
+            buttons[28] = btn29;
+            buttons[29] = btn30;
+            buttons[30] = btn31;
+            buttons[31] = btn32;
+            buttons[32] = btn33;
+            buttons[33] = btn34;
+            buttons[34] = btn35;
+            buttons[35] = btn36;
+            buttons[36] = btn37;
+            buttons[37] = btn38;
+            buttons[38] = btn39;
+            buttons[39] = btn40;
+            buttons[40] = btn41;
+            buttons[41] = btn42;
+            buttons[42] = btn43;
+            buttons[43] = btn44;
+            buttons[44] = btn45;
+            buttons[45] = btn46;
+            buttons[46] = btn47;
+            buttons[47] = btn48;
+            buttons[48] = btn49;
+            buttons[49] = btn50;
+
+            foreach (Button button in buttons)
+            {
+                button.Visible = true;
+            }
+
             foreach (Button button in buttons)
             {
                 if (button == null)
                 {
                     continue;
                 }
-                if (button.Text == "103")
+                string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+                using (MySqlConnection conn = new MySqlConnection(connStr))
                 {
-                    button.BackColor = System.Drawing.Color.Red;
-                } else
-                {
-                    button.BackColor = System.Drawing.Color.Green;
-                }
-            }
-            int count = 1;
-            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-           using (MySqlConnection conn = new MySqlConnection(connStr))
+                    currentBtn = int.Parse(button.Text);
 
-            {     
-                conn.Open();
-                string sql = "select * from dailyparking.parkingspace where customer_lname is null or customer_lname = '';";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (count <= 50)
-                {
-                    reader.Read();
-                    if (reader.GetInt32("parkingspace_id") == count + 100)
+                    conn.Open();
+                    string sql = "select customer_lname from dailyparking.parkingspace where parkingspace_id = '" + currentBtn + "';";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        arr[count-1] = count + 100;   
-                    } else
-                    {
-                        arr[count - 1] = 0;
+                        if (reader.IsDBNull(0))
+                        {
+                            button.Enabled = true;
+                            button.BackColor = System.Drawing.Color.Green;
+                            button.Click += btn1_Click;
+                            continue ;
+                        }
+                        avail = reader.GetString(0);
+                        if (avail != "")
+                        {
+                            button.BackColor = System.Drawing.Color.Red;
+                            button.Enabled = false;
+                        }
+                        else
+                        {
+                            button.Enabled = true;
+                            button.BackColor = System.Drawing.Color.Green;
+                            button.Click += btn1_Click;
+                        }
                     }
-                    count++;
                 }
-                conn.Close();
             }
-            foreach(int i in arr)
+            }
+
+            protected void firstFloorBtn_Click(object sender, EventArgs e)
             {
-                ListBox1.Items.Add(i.ToString());
+
             }
-            
-            
-            btn1.Visible = true;
-            btn2.Visible = true;
-            btn3.Visible = true;
-            btn4.Visible = true;
-            btn5.Visible = true;
-            btn6.Visible = true;
-            btn7.Visible = true;
-            btn8.Visible = true;
-            btn9.Visible = true;
-            btn10.Visible = true;
-            btn11.Visible = true;
-            btn12.Visible = true;
-            btn13.Visible = true;
-            btn14.Visible = true;
-            btn15.Visible = true;
-            btn16.Visible = true;
-            btn17.Visible = true;
-            btn18.Visible = true;
-            btn19.Visible = true;
-            btn20.Visible = true;
-            btn21.Visible = true;
-            btn22.Visible = true;
-            btn23.Visible = true;
-            btn24.Visible = true;
-            btn25.Visible = true;
-            btn26.Visible = true;
-            btn27.Visible = true;
-            btn28.Visible = true;
-            btn29.Visible = true;
-            btn30.Visible = true;
-            btn31.Visible = true;
-            btn32.Visible = true;
-            btn33.Visible = true;
-            btn34.Visible = true;
-            btn35.Visible = true;
-            btn36.Visible = true;
-            btn37.Visible = true;
-            btn38.Visible = true;
-            btn39.Visible = true;
-            btn40.Visible = true;
-            btn41.Visible = true;
-            btn42.Visible = true;
-            btn43.Visible = true;
-            btn44.Visible = true;
-            btn45.Visible = true;
-            btn46.Visible = true;
-            btn47.Visible = true;
-            btn48.Visible = true;
-            btn49.Visible = true;
-            btn50.Visible = true;
-        }
-
-        protected void firstFloorBtn_Click(object sender, EventArgs e)
-        {
-                
+            protected void secondFloorBtn_Click(object sender, EventArgs e)
+            {
+                Response.Redirect("floor2.aspx");
             }
-        protected void secondFloorBtn_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("floor2.aspx");
+
+            protected void thirdFloorBtn_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            protected void fourthFloorBtn_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            protected void fifthFloorBtn_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            protected void btn1_Click(object sender, EventArgs e)
+            {
+            string last = Request.Cookies["Last"].Value;
+            string s = (sender as Button).Text;
+            Response.Write(s);
+            
+            string scon = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (MySqlConnection conn = new MySqlConnection(scon))
+            {
+                string sql = "update parkingspace set customer_lname = '" + last + "' where parkingspace_id = '" + s + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            if (Request.Cookies["Last"] != null)
+            {
+                Response.Cookies["Last"].Expires = DateTime.Now.AddDays(-1);
+            }
+            Response.Redirect("customerChoice.aspx");
+            
+            //Response.Write(Context["myKey"]);
         }
 
-        protected void thirdFloorBtn_Click(object sender, EventArgs e)
-        {
+            protected void backBtn_Click(object sender, EventArgs e)
+            {
+                Response.Redirect("startingMap.aspx");
+            }
 
-        }
-
-        protected void fourthFloorBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void fifthFloorBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btn1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void backBtn_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("startingMap.aspx");
-        }
     }
-}
+    } 
