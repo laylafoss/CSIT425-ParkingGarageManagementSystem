@@ -9,6 +9,7 @@ namespace ParkingGarageApp
 {
     public partial class dailyInformation : System.Web.UI.Page
     {
+         
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,6 +17,7 @@ namespace ParkingGarageApp
 
         protected void continueBtn_Click(object sender, EventArgs e)
         {
+            //ParkingSpace parkingSpace = new ParkingSpace();
             if (String.IsNullOrEmpty(lastTxt.Text + firstTxt.Text + licenseTxt.Text + phoneNumberTxt.Text))
             {
                 invalidInputLabel.Text = "Invalid input, all required fields must be filled.";
@@ -43,6 +45,18 @@ namespace ParkingGarageApp
             }
             else
             {
+                HttpCookie cookie = new HttpCookie("Last");
+                HttpCookie firstCookie = new HttpCookie("First");
+                HttpCookie numberCookie = new HttpCookie("Number");
+                HttpCookie plate = new HttpCookie("Plate");
+                cookie.Value = lastTxt.Text;
+                firstCookie.Value = firstTxt.Text;
+                numberCookie.Value = phoneNumberTxt.Text;
+                plate.Value = licenseTxt.Text;
+                Response.Cookies.Add(cookie);
+                Response.Cookies.Add(firstCookie);
+                Response.Cookies.Add(numberCookie);
+                Response.Cookies.Add(plate);
                 Response.Redirect("startingMap.aspx");
             }
         }

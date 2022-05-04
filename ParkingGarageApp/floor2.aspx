@@ -12,7 +12,7 @@
             Floor 2</div>
         <p>
         &nbsp;&nbsp;
-        <asp:Button ID="btn51" runat="server" Text="201" Visible="False" />
+        <asp:Button ID="btn51" runat="server" Text="201" Visible="False" OnClick="btn51_Click" />
             &nbsp;<asp:Button ID="btn52" runat="server" Text="202" Visible="False" />
             &nbsp;<asp:Button ID="btn53" runat="server" Text="203" Visible="False" />
             &nbsp;<asp:Button ID="btn54" runat="server" Text="204" Visible="False" />
