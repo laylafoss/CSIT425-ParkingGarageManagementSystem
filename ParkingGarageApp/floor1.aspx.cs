@@ -96,7 +96,7 @@ namespace ParkingGarageApp
                             button.Enabled = true;
                             button.BackColor = System.Drawing.Color.Green;
                             button.Click += btn1_Click;
-                            continue ;
+                            continue;
                         }
                         avail = reader.GetString(0);
                         if (avail != "")
@@ -113,59 +113,40 @@ namespace ParkingGarageApp
                     }
                 }
             }
-            }
+        }
 
-            protected void firstFloorBtn_Click(object sender, EventArgs e)
-            {
-
-            }
-            protected void secondFloorBtn_Click(object sender, EventArgs e)
-            {
-                Response.Redirect("floor2.aspx");
-            }
-
-            protected void thirdFloorBtn_Click(object sender, EventArgs e)
-            {
-
-            }
-
-            protected void fourthFloorBtn_Click(object sender, EventArgs e)
-            {
-
-            }
-
-            protected void fifthFloorBtn_Click(object sender, EventArgs e)
-            {
-
-            }
-
-            protected void btn1_Click(object sender, EventArgs e)
-            {
+        protected void btn1_Click(object sender, EventArgs e)
+        {
             string last = Request.Cookies["Last"].Value;
+            string first = Request.Cookies["First"].Value;
+            string plate = Request.Cookies["Plate"].Value;
+            string number = Request.Cookies["Number"].Value;
             string s = (sender as Button).Text;
-            Response.Write(s);
-            
+            DateTime dateTime = DateTime.Now;
+
+
             string scon = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (MySqlConnection conn = new MySqlConnection(scon))
             {
-                string sql = "update parkingspace set customer_lname = '" + last + "' where parkingspace_id = '" + s + "';";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "update parkingspace set customer_lname = (@1), customer_fname = (@2), customer_plate = (@3), customer_phone = (@4), parkingspace_entry = (@5) where parkingspace_id = " + s;
+                cmd.Parameters.AddWithValue("@1", last);
+                cmd.Parameters.AddWithValue("@2", first);
+                cmd.Parameters.AddWithValue("@3", plate);
+                cmd.Parameters.AddWithValue("@4", number);
+                cmd.Parameters.AddWithValue("@5", dateTime);
                 cmd.ExecuteNonQuery();
+                conn.Close();
             }
-            if (Request.Cookies["Last"] != null)
-            {
-                Response.Cookies["Last"].Expires = DateTime.Now.AddDays(-1);
-            }
-            Response.Redirect("customerChoice.aspx");
             
-            //Response.Write(Context["myKey"]);
+            Response.Redirect("customerChoice.aspx");
         }
 
-            protected void backBtn_Click(object sender, EventArgs e)
-            {
-                Response.Redirect("startingMap.aspx");
-            }
+        protected void backBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("startingMap.aspx");
+        }
 
     }
-    } 
+}

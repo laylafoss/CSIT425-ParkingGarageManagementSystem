@@ -11,7 +11,7 @@
         <div>
             Floor 3</div>
         <p>
-        &nbsp;&nbsp;<asp:Button ID="btn101" runat="server" Text="301" Visible="False" />
+        &nbsp;&nbsp;<asp:Button ID="btn101" runat="server" Text="301" Visible="False" OnClick="btn101_Click" />
         &nbsp;<asp:Button ID="btn102" runat="server" Text="302" Visible="False" />
         &nbsp;<asp:Button ID="btn103" runat="server" Text="303" Visible="False" />
         &nbsp;<asp:Button ID="btn104" runat="server" Text="304" Visible="False" />
