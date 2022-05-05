@@ -83,7 +83,7 @@ namespace ParkingGarageApp
                     currentBtn = int.Parse(button.Text);
 
                     conn.Open();
-                    string sql = "select customer_lname from dailyparking.parkingspace where parkingspace_id = '" + currentBtn + "';";
+                    string sql = "select customer_lname from parkingspace where parkingspace_id = '" + currentBtn + "';";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
