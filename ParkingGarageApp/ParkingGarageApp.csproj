@@ -110,6 +110,7 @@
   <ItemGroup>
     <Content Include="adminPage.aspx" />
     <Content Include="adminPageLogin.aspx" />
+    <Content Include="confirmationPage.aspx" />
     <Content Include="floor1.aspx" />
     <Content Include="customerChoice.aspx" />
     <Content Include="dailyInformation.aspx" />
@@ -117,6 +118,7 @@
     <Content Include="floor3.aspx" />
     <Content Include="floor4.aspx" />
     <Content Include="floor5.aspx" />
+    <Content Include="invoiceInformation.aspx" />
     <Content Include="monthlyInformation.aspx" />
     <Content Include="startingMap.aspx" />
     <Content Include="Web.config" />
@@ -135,6 +137,13 @@
     </Compile>
     <Compile Include="adminPageLogin.aspx.designer.cs">
       <DependentUpon>adminPageLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="confirmationPage.aspx.cs">
+      <DependentUpon>confirmationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmationPage.aspx.designer.cs">
+      <DependentUpon>confirmationPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="floor1.aspx.cs">
       <DependentUpon>floor1.aspx</DependentUpon>
@@ -184,6 +193,13 @@
     </Compile>
     <Compile Include="floor5.aspx.designer.cs">
       <DependentUpon>floor5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="invoiceInformation.aspx.cs">
+      <DependentUpon>invoiceInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="invoiceInformation.aspx.designer.cs">
+      <DependentUpon>invoiceInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="monthlyInformation.aspx.cs">
       <DependentUpon>monthlyInformation.aspx</DependentUpon>
