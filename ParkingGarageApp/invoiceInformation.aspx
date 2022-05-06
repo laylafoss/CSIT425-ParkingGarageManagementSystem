@@ -10,7 +10,21 @@
     <form id="form1" runat="server">
         <div>
             Payment Information Needed<br />
+            How many hours will you be occupying the spot:&nbsp;
+            <asp:ListBox ID="hoursParkingListBox" runat="server" Height="24px" Width="48px">
+                <asp:ListItem>1</asp:ListItem>
+                <asp:ListItem>2</asp:ListItem>
+                <asp:ListItem>3</asp:ListItem>
+                <asp:ListItem>4</asp:ListItem>
+                <asp:ListItem>5</asp:ListItem>
+                <asp:ListItem>6</asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>8+</asp:ListItem>
+            </asp:ListBox>
             <br />
+            <br />
+            <br />
+            Card Information<br />
             Card Holder Name:&nbsp;
             <asp:TextBox ID="cardHolderNameTxt" runat="server"></asp:TextBox>
             <br />

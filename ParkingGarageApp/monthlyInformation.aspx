@@ -8,34 +8,49 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            Monthly Parking: Customer Information Needed</div>
-        <p>
-            Last Name:&nbsp;
-            <asp:TextBox ID="lastTxt" runat="server"></asp:TextBox>
-&nbsp;&nbsp; First Name:
-            <asp:TextBox ID="firstTxt" runat="server"></asp:TextBox>
+        <div style="background-color: #99CCFF; height: 580px; text-align: center;">
+            <br />
+            <br />
+            <br />
+            <br />
+            <asp:Label ID="Label4" runat="server" Font-Names="Candara" Text="Monthly Parking: Customer Information Needed"></asp:Label>
+        <p style="text-align: center">
+            <asp:Label ID="Label5" runat="server" Font-Names="Candara" Text="Last Name:"></asp:Label>
+&nbsp;<asp:TextBox ID="lastTxt" runat="server"></asp:TextBox>
+&nbsp;&nbsp;
+            <asp:Label ID="Label6" runat="server" Font-Names="Candara" Text="First Name:"></asp:Label>
+&nbsp;<asp:TextBox ID="firstTxt" runat="server"></asp:TextBox>
         </p>
         <p>
-            License Plate Number:&nbsp;
+            <asp:Label ID="Label7" runat="server" Font-Names="Candara" Text="License Plate Number:"></asp:Label>
+&nbsp;
             <asp:TextBox ID="licenseTxt" runat="server"></asp:TextBox>
         </p>
         <p>
-            Email Address:&nbsp;&nbsp;
-            <asp:TextBox ID="emailTxt" runat="server"></asp:TextBox>
+            <asp:Label ID="Label9" runat="server" Font-Names="Candara" Text="Email Address:"></asp:Label>
+&nbsp;
+            <asp:TextBox ID="emailTxt" runat="server" Width="207px"></asp:TextBox>
         </p>
         <p>
-            Phone Number:&nbsp; <asp:TextBox ID="phoneNumberTxt" runat="server"></asp:TextBox>
+            <asp:Label ID="Label8" runat="server" Font-Names="Candara" Text="Phone Number:"></asp:Label>
+&nbsp;<asp:TextBox ID="phoneNumberTxt" runat="server"></asp:TextBox>
         </p>
+            <p style="text-align: center">
+            <asp:Label ID="invalidInputLabel" runat="server" Text="Invalid Input" Visible="False" ForeColor="#CC0000" Font-Names="Candara"></asp:Label>
+        </p>
+            <p style="text-align: center">
+        <asp:Button ID="continueBtn" runat="server" Text="Continue" OnClick="continueBtn_Click" Font-Names="Candara" />
+        </p>
+            <p style="text-align: center">
+        <asp:Button ID="backBtn" runat="server" Text="Back" OnClick="backBtn_Click" Font-Names="Candara" Width="60px" />
+        </p>
+        </div>
         <p>
 
         </p>
         <p>
-            <asp:Label ID="invalidInputLabel" runat="server" Text="Invalid Input" Visible="False" ForeColor="#CC0000"></asp:Label>
-        </p>
-        <asp:Button ID="continueBtn" runat="server" Text="Continue" OnClick="continueBtn_Click" />
+            &nbsp;</p>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="backBtn" runat="server" Text="Back" OnClick="backBtn_Click" />
-    </form>
+        </form>
 </body>
 </html>
