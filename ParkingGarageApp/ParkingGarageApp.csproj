@@ -118,6 +118,7 @@
     <Content Include="floor3.aspx" />
     <Content Include="floor4.aspx" />
     <Content Include="floor5.aspx" />
+    <Content Include="Images\carimage.png" />
     <Content Include="invoiceInformation.aspx" />
     <Content Include="monthlyInformation.aspx" />
     <Content Include="startingMap.aspx" />

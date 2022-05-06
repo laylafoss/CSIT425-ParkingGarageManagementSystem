@@ -6,12 +6,15 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="text-align: center; height: 636px; background-color: #99CCFF">
     <form id="form1" runat="server">
         <div>
-            Floor 3</div>
+            <br />
+            <br />
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="#3333FF" Text="FLOOR 3"></asp:Label>
+        </div>
         <p>
-        &nbsp;&nbsp;<asp:Button ID="btn101" runat="server" Text="301" Visible="False" OnClick="btn101_Click" />
+            <asp:Button ID="btn101" runat="server" Text="301" Visible="False" OnClick="btn101_Click" />
         &nbsp;<asp:Button ID="btn102" runat="server" Text="302" Visible="False" />
         &nbsp;<asp:Button ID="btn103" runat="server" Text="303" Visible="False" />
         &nbsp;<asp:Button ID="btn104" runat="server" Text="304" Visible="False" />
@@ -23,7 +26,6 @@
         &nbsp;<asp:Button ID="btn110" runat="server" Text="310" Visible="False" />
         </p>
         <p>
-&nbsp;&nbsp;
         <asp:Button ID="btn111" runat="server" Text="311" Visible="False" />
         &nbsp;<asp:Button ID="btn112" runat="server" Text="312" Visible="False" />
         &nbsp;<asp:Button ID="btn113" runat="server" Text="313" Visible="False" />
@@ -36,7 +38,6 @@
         &nbsp;<asp:Button ID="btn120" runat="server" Text="320" Visible="False" />
         </p>
         <p>
-        &nbsp;&nbsp;
         <asp:Button ID="btn121" runat="server" Text="321" Visible="False" />
         &nbsp;<asp:Button ID="btn122" runat="server" Text="322" Visible="False" />
         &nbsp;<asp:Button ID="btn123" runat="server" Text="323" Visible="False" />
@@ -49,7 +50,6 @@
         &nbsp;<asp:Button ID="btn130" runat="server" Text="330" Visible="False" />
         </p>
         <p>
-        &nbsp;&nbsp;
         <asp:Button ID="btn131" runat="server" Text="331" Visible="False" />
         &nbsp;<asp:Button ID="btn132" runat="server" Text="332" Visible="False" />
         &nbsp;<asp:Button ID="btn133" runat="server" Text="333" Visible="False" />
@@ -62,7 +62,6 @@
         &nbsp;<asp:Button ID="btn140" runat="server" Text="340" Visible="False" />
         </p>
         <p>
-        &nbsp;&nbsp;
         <asp:Button ID="btn141" runat="server" Text="341" Visible="False" />
         &nbsp;<asp:Button ID="btn142" runat="server" Text="342" Visible="False" />
         &nbsp;<asp:Button ID="btn143" runat="server" Text="343" Visible="False" />

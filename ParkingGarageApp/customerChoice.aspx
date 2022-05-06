@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <meta charset="utf-8" />
     <title></title>
 </head>
 <body style="height: 408px">
@@ -20,6 +21,7 @@
             <asp:Label ID="Label2" runat="server" Font-Names="Candara" Font-Size="Small" Text="Make selection below to access the parking garage:"></asp:Label>
             <br />
             <br />
+            <meta charset="utf-8" />
             <asp:Button ID="dailyBtn" runat="server" Text="DAILY" Height="47px" OnClick="dailyBtn_Click" Width="142px" Font-Names="Candara" Font-Size="Large" />
             <br />
             <asp:Label ID="Label3" runat="server" Font-Names="Candara" Font-Size="X-Small" Text="One-Time Parking"></asp:Label>
@@ -29,6 +31,8 @@
             <br />
             <asp:Label ID="Label4" runat="server" Font-Names="Candara" Font-Size="X-Small" Text="Indefinite Parking"></asp:Label>
             <br />
+            <br />
+            <asp:Image ID="Image1" runat="server" Height="116px" ImageUrl="~/Images/carimage.png" Width="97px" />
             <br />
             <br />
             <br />

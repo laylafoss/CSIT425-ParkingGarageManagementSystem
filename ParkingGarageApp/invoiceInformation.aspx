@@ -8,8 +8,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            Payment Information Needed<br />
+        <div style="text-align: center; background-color: #99CCFF; height: 713px;">
+            <br />
+            <br />
+            <asp:Label ID="Label2" runat="server" Font-Names="Candara" Text="Payment Information Needed"></asp:Label>
+            <br />
+            <br />
             How many hours will you be occupying the spot:&nbsp;
             <asp:ListBox ID="hoursParkingListBox" runat="server" Height="24px" Width="48px">
                 <asp:ListItem>1</asp:ListItem>
@@ -37,10 +41,12 @@
             Expiration Date (MM/YY):&nbsp;
             <asp:TextBox ID="expirationDateTxt" runat="server" Width="41px"></asp:TextBox>
             <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="cardNumberTxt" ErrorMessage= "Error" />
-&nbsp;</div>
+&nbsp;<br />
+            <br />
+            <asp:Button ID="confirmBtn" runat="server" OnClick="confirmBtn_Click" Text="CONFIRM" Height="39px" />
+        </div>
         <p>
-            <asp:Button ID="confirmBtn" runat="server" OnClick="confirmBtn_Click" Text="Confirm" />
-        </p>
+            &nbsp;</p>
     </form>
 </body>
 </html>

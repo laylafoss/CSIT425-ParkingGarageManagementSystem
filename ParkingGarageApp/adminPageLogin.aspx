@@ -6,10 +6,17 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="height: 699px">
     <form id="form1" runat="server">
-        <div>
-            Administrator Login: Authorized Personnel Only<br />
+        <div style="text-align: center; background-color: #99CCFF; height: 732px;">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <asp:Label ID="Label1" runat="server" Text="Administrator Login: "></asp:Label>
+            <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="Authorized Personnel Only"></asp:Label>
+            <br />
             <br />
             Password:&nbsp;
             <asp:TextBox ID="adminPasswordTxt" runat="server" OnTextChanged="adminPasswordTxt_TextChanged"></asp:TextBox>
@@ -20,8 +27,9 @@
             <asp:Button ID="backBtn" runat="server" OnClick="backBtn_Click" Text="Back" />
             <br />
             <br />
-        </div>
         <asp:Label ID="errorMessageLabel" runat="server" ForeColor="#CC0000" Text="Error Message" Visible="False"></asp:Label>
+            <br />
+        </div>
     </form>
 </body>
 </html>

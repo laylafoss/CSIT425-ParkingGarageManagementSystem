@@ -6,11 +6,14 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="text-align: center">
+    <form id="form5" runat="server" style="background-color: #99CCFF; height: 824px;">
         <div>
-            Floor 5</div>
-    <form id="form5" runat="server">
-        &nbsp;&nbsp;
+            <br />
+            <br />
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="#3333FF" Text="FLOOR 5"></asp:Label>
+            <br />
+        </div>
         <asp:Button ID="btn201" runat="server" Text="501" Visible="False" OnClick="btn201_Click" />
         &nbsp;<asp:Button ID="btn202" runat="server" Text="502" Visible="False" />
         &nbsp;<asp:Button ID="btn203" runat="server" Text="503" Visible="False" />
@@ -22,8 +25,7 @@
         &nbsp;<asp:Button ID="btn209" runat="server" Text="509" Visible="False" />
         &nbsp;<asp:Button ID="btn210" runat="server" Text="510" Visible="False" />
         <p>
-        &nbsp;&nbsp;
-        <asp:Button ID="btn211" runat="server" Text="511" Visible="False" />
+        &nbsp;<asp:Button ID="btn211" runat="server" Text="511" Visible="False" />
         &nbsp;<asp:Button ID="btn212" runat="server" Text="512" Visible="False" />
         &nbsp;<asp:Button ID="btn213" runat="server" Text="513" Visible="False" />
         &nbsp;<asp:Button ID="btn214" runat="server" Text="514" Visible="False" />
@@ -35,8 +37,7 @@
         &nbsp;<asp:Button ID="btn220" runat="server" Text="520" Visible="False" />
         </p>
         <p>
-        &nbsp;&nbsp;
-        <asp:Button ID="btn221" runat="server" Text="521" Visible="False" />
+        &nbsp;<asp:Button ID="btn221" runat="server" Text="521" Visible="False" />
         &nbsp;<asp:Button ID="btn222" runat="server" Text="522" Visible="False" />
         &nbsp;<asp:Button ID="btn223" runat="server" Text="523" Visible="False" />
         &nbsp;<asp:Button ID="btn224" runat="server" Text="524" Visible="False" />
@@ -48,8 +49,7 @@
         &nbsp;<asp:Button ID="btn230" runat="server" Text="530" Visible="False" />
         </p>
         <p>
-        &nbsp;&nbsp;
-        <asp:Button ID="btn231" runat="server" Text="531" Visible="False" />
+        &nbsp;<asp:Button ID="btn231" runat="server" Text="531" Visible="False" />
         &nbsp;<asp:Button ID="btn232" runat="server" Text="532" Visible="False" />
         &nbsp;<asp:Button ID="btn233" runat="server" Text="533" Visible="False" />
         &nbsp;<asp:Button ID="btn234" runat="server" Text="534" Visible="False" />
@@ -61,8 +61,7 @@
         &nbsp;<asp:Button ID="btn240" runat="server" Text="540" Visible="False" />
         </p>
         <p>
-        &nbsp;&nbsp;
-        <asp:Button ID="btn241" runat="server" Text="541" Visible="False" />
+        &nbsp;<asp:Button ID="btn241" runat="server" Text="541" Visible="False" />
         &nbsp;<asp:Button ID="btn242" runat="server" Text="542" Visible="False" />
         &nbsp;<asp:Button ID="btn243" runat="server" Text="543" Visible="False" />
         &nbsp;<asp:Button ID="btn244" runat="server" Text="544" Visible="False" />

@@ -8,12 +8,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="text-align: center; background-color: #99CCFF; height: 557px;">
+        <div style="text-align: center; background-color: #99CCFF; height: 828px;">
             <br />
             <br />
             <br />
             <br />
-            <asp:Label ID="Label4" runat="server" Font-Names="Candara" Text="Daily Parking: Customer Information Needed"></asp:Label>
+            <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Candara" Text="Daily Parking: Customer Information Needed"></asp:Label>
             <br />
             <br />
             <asp:Label ID="Label5" runat="server" Font-Names="Candara" Text="Last Name:"></asp:Label>

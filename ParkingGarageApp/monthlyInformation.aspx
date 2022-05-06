@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="background-color: #99CCFF; height: 580px; text-align: center;">
+        <div style="background-color: #99CCFF; height: 720px; text-align: center;">
             <br />
             <br />
             <br />
