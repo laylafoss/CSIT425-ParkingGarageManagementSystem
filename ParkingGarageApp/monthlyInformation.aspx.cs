@@ -54,6 +54,7 @@ namespace ParkingGarageApp
                 firstCookie.Value = firstTxt.Text;
                 numberCookie.Value = phoneNumberTxt.Text;
                 plate.Value = licenseTxt.Text;
+                Response.Cookies.Add(email);
                 Response.Cookies.Add(cookie);
                 Response.Cookies.Add(firstCookie);
                 Response.Cookies.Add(numberCookie);

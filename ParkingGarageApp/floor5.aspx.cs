@@ -121,6 +121,45 @@ namespace ParkingGarageApp
                     }
                 }
             }
+            if (Request.Cookies["Monthly"] != null)
+            {
+
+                Button[] btns = new Button[5];
+                btns[0] = btn201;
+                btns[1] = btn202;
+                btns[2] = btn203;
+                btns[3] = btn204;
+                btns[4] = btn205;
+
+                foreach (Button b in btns)
+                {
+                    currentBtn = int.Parse(b.Text);
+                    string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+                    using (MySqlConnection conn = new MySqlConnection(connStr))
+                    {
+                        conn.Open();
+                        string sql = "select customer_fname from parkingspace where parkingspace_id = '" + currentBtn + "';";
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            if (dr["customer_fname"] != DBNull.Value)
+                            {
+                                b.BackColor = System.Drawing.Color.Red;
+                                b.Enabled = false;
+
+                            }
+
+                            else
+                            {
+                                b.Enabled = true;
+                                b.BackColor = System.Drawing.Color.SpringGreen;
+                                b.Click += monthly_Click;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         protected void backBtn_Click(object sender, EventArgs e)
@@ -160,6 +199,34 @@ namespace ParkingGarageApp
             Response.Cookies.Add(dtCookie);
             Response.Cookies.Add(space);
             Response.Redirect("invoiceInformation.aspx");
+        }
+
+        protected void monthly_Click(object sender, EventArgs e)
+        {
+            string last = Request.Cookies["Last"].Value;
+            string first = Request.Cookies["First"].Value;
+            string plate = Request.Cookies["Plate"].Value;
+            string email = Request.Cookies["Email"].Value;
+            string number = Request.Cookies["Number"].Value;
+            string space = (sender as Button).Text;
+
+            string scon = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (MySqlConnection con = new MySqlConnection(scon))
+            {
+                con.Open();
+                MySqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "insert into monthlycustomer set mnthly_lname = (@1), mnthly_fname = (@2), license_plate = (@3), mnthly_email = (@4), mnthly_phonenum = (@5), parkingspace_id = (@6)";
+                cmd.Parameters.AddWithValue("@1", last);
+                cmd.Parameters.AddWithValue("@2", first);
+                cmd.Parameters.AddWithValue("@3", plate);
+                cmd.Parameters.AddWithValue("@4", email);
+                cmd.Parameters.AddWithValue("@5", number);
+                cmd.Parameters.AddWithValue("@6", space);
+                cmd.ExecuteNonQuery();
+
+            }
+            btn201_Click(sender, e);
+
         }
 
         protected void updateDB(int id, Button btn)

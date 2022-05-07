@@ -136,13 +136,15 @@ namespace ParkingGarageApp
                 btns[2] = btn3;
                 btns[3] = btn4;
                 btns[4] = btn5;
+                
                 foreach (Button b in btns)
                 {
+                    currentBtn = int.Parse(b.Text);
                     string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
                     using (MySqlConnection conn = new MySqlConnection(connStr))
                     {
                         conn.Open();
-                        string sql = "select customer_fname from parkingspace where parkingspace_id > '100' and parkingspace_id < '106';";
+                        string sql = "select customer_fname from parkingspace where parkingspace_id = '" + currentBtn + "';";
                         MySqlCommand cmd = new MySqlCommand(sql, conn);
                         MySqlDataReader dr = cmd.ExecuteReader();
                         while (dr.Read())
@@ -158,27 +160,11 @@ namespace ParkingGarageApp
                             {
                                 b.Enabled = true;
                                 b.BackColor = System.Drawing.Color.SpringGreen;
-                                b.Click += btn1_Click;
+                                b.Click += monthly_Click;
                             }
                         }
                     }
                 }
-                
-                //btn1.Enabled = true;
-                //btn2.Enabled = true;
-                //btn3.Enabled = true;
-                //btn4.Enabled = true;
-                //btn5.Enabled = true;
-                //btn1.BackColor = System.Drawing.Color.SpringGreen;
-                //btn2.BackColor = System.Drawing.Color.SpringGreen;
-                //btn3.BackColor = System.Drawing.Color.SpringGreen;
-                //btn4.BackColor = System.Drawing.Color.SpringGreen;
-                //btn5.BackColor = System.Drawing.Color.SpringGreen;
-                //btn1.Click += btn1_Click;
-                //btn2.Click += btn1_Click;
-                //btn3.Click += btn1_Click;
-                //btn4.Click += btn1_Click;
-                //btn5.Click += btn1_Click;
             }
 
         }
@@ -221,6 +207,33 @@ namespace ParkingGarageApp
             Response.Redirect("startingMap.aspx");
         }
 
+        protected void monthly_Click(object sender, EventArgs e)
+        {
+            string last = Request.Cookies["Last"].Value;
+            string first = Request.Cookies["First"].Value;
+            string plate = Request.Cookies["Plate"].Value;
+            string email = Request.Cookies["Email"].Value;
+            string number = Request.Cookies["Number"].Value;
+            string space = (sender as Button).Text;
+
+            string scon = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (MySqlConnection con = new MySqlConnection(scon))
+            {
+                con.Open();
+                MySqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "insert into monthlycustomer set mnthly_lname = (@1), mnthly_fname = (@2), license_plate = (@3), mnthly_email = (@4), mnthly_phonenum = (@5), parkingspace_id = (@6)";
+                cmd.Parameters.AddWithValue("@1", last);
+                cmd.Parameters.AddWithValue("@2", first);
+                cmd.Parameters.AddWithValue("@3", plate);
+                cmd.Parameters.AddWithValue("@4", email);
+                cmd.Parameters.AddWithValue("@5", number);
+                cmd.Parameters.AddWithValue("@6", space);
+                cmd.ExecuteNonQuery();
+
+            }
+            btn1_Click(sender, e);
+
+        }
         protected void updateDB(int id, Button btn)
         {
             if (id > 100 && id < 106)
