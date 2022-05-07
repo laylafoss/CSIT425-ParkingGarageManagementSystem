@@ -215,19 +215,21 @@ namespace ParkingGarageApp
             string email = Request.Cookies["Email"].Value;
             string number = Request.Cookies["Number"].Value;
             string space = (sender as Button).Text;
-
             string scon = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (MySqlConnection con = new MySqlConnection(scon))
             {
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "insert into monthlycustomer set mnthly_lname = (@1), mnthly_fname = (@2), license_plate = (@3), mnthly_email = (@4), mnthly_phonenum = (@5), parkingspace_id = (@6)";
-                cmd.Parameters.AddWithValue("@1", last);
-                cmd.Parameters.AddWithValue("@2", first);
-                cmd.Parameters.AddWithValue("@3", plate);
-                cmd.Parameters.AddWithValue("@4", email);
-                cmd.Parameters.AddWithValue("@5", number);
-                cmd.Parameters.AddWithValue("@6", space);
+                //cmd.CommandText = "insert into monthlycustomer set mnthly_lname = (@1), mnthly_fname = (@2), license_plate = (@3), mnthly_email = (@4), mnthly_phonenum = (@5), parkingspace_id = (@6)";
+                //cmd.Parameters.AddWithValue("@1", last);
+                //cmd.Parameters.AddWithValue("@2", first);
+                //cmd.Parameters.AddWithValue("@3", plate);
+                //cmd.Parameters.AddWithValue("@4", email);
+                //cmd.Parameters.AddWithValue("@5", number);
+                //cmd.Parameters.AddWithValue("@6", space);
+                //cmd.ExecuteNonQuery();
+                cmd.CommandText = "update parkingspace set mnthly_id = 'y' where parkingspace_id = (@7)";
+                cmd.Parameters.AddWithValue("@7", space);
                 cmd.ExecuteNonQuery();
 
             }
@@ -245,7 +247,7 @@ namespace ParkingGarageApp
                 {
                     conn.Open();
 
-                    string sql = "update parkingspace set customer_lname = 'monthly', customer_fname = null, customer_plate = null, customer_phone = null, parkingspace_entry = null, parkingspace_exit = null where parkingspace_id = '" + id + "'";
+                    string sql = "update parkingspace set customer_lname = 'monthly', customer_fname = null, customer_plate = null, customer_phone = null, mnthly_id = null, parkingspace_entry = null, parkingspace_exit = null where parkingspace_id = '" + id + "'";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.ExecuteNonQuery();
                 }
@@ -260,7 +262,7 @@ namespace ParkingGarageApp
                 {
                     conn.Open();
 
-                    string sql = "update parkingspace set customer_lname = null, customer_fname = null, customer_plate = null, customer_phone = null, parkingspace_entry = null, parkingspace_exit = null where parkingspace_id = '" + id + "'";
+                    string sql = "update parkingspace set customer_lname = null, customer_fname = null, customer_plate = null, customer_phone = null, mnthly_id = null, parkingspace_entry = null, parkingspace_exit = null where parkingspace_id = '" + id + "'";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.ExecuteNonQuery();
                 }

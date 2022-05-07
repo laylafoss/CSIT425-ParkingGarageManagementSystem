@@ -21,7 +21,7 @@ namespace ParkingGarageApp
         protected void btnTestCon_Click(object sender, EventArgs e)
         {
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            using(MySqlConnection cn = new MySqlConnection(connStr))
+            using (MySqlConnection cn = new MySqlConnection(connStr))
             {
                 cn.Open();
                 string sql = "Select * from parkingspace;";
@@ -84,7 +84,7 @@ namespace ParkingGarageApp
                 int count;
                 string sql = "select count(*) from parkingspace where mnthly_id = 'y';";
                 cn.Open();
-                MySqlCommand cmd = new MySqlCommand(sql,cn);    
+                MySqlCommand cmd = new MySqlCommand(sql, cn);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -137,12 +137,11 @@ namespace ParkingGarageApp
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            string first, last, space;
             DateTime now = DateTime.Now;
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (MySqlConnection cn = new MySqlConnection(connStr))
             {
-                string sql = "select distinct customer_lname, customer_fname, parkingspace_id from invoice where invoice_pay_method = 'Monthly, will be invoiced by admin';";
+                string sql = "select customer_lname, customer_fname, parkingspace_id, invoice_id from invoice where invoice_pay_method = 'Monthly, will be invoiced by admin';";
                 cn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
                 DataTable dataTable = new DataTable();
@@ -150,11 +149,9 @@ namespace ParkingGarageApp
                 dataAdapter.Fill(dataTable);
                 GridView2.DataSource = dataTable;
                 GridView2.DataBind();
-            }
-            using (MySqlConnection cn = new MySqlConnection(connStr))
-            {
-                cn.Open();
-                MySqlCommand cmd = cn.CreateCommand();
+
+
+                
                 cmd.CommandText = "update invoice set invoice_pay_method = 'paid' where invoice_pay_method =  'Monthly, will be invoiced by admin'";
                 cmd.ExecuteNonQuery();
                 if (GridView2.Rows.Count > 0)
@@ -162,15 +159,18 @@ namespace ParkingGarageApp
                     Label7.Visible = true;
                     foreach (GridViewRow dr in GridView2.Rows)
                     {
+                        string first, last, space, id;
+
                         last = dr.Cells[0].Text;
                         first = dr.Cells[1].Text;
                         space = dr.Cells[2].Text;
                         cmd.CommandText = "insert into invoice set customer_lname = (@1), customer_fname = (@2), invoice_pay_method = 'paid', invoice_total = '100', parkingspace_id = (@3), invoice_datetime = (@4)";
-                        _ = cmd.Parameters.AddWithValue("@1", last);
+                        cmd.Parameters.AddWithValue("@1", last);
                         cmd.Parameters.AddWithValue("@2", first);
                         cmd.Parameters.AddWithValue("@3", space);
                         cmd.Parameters.AddWithValue("@4", now);
                         cmd.ExecuteNonQuery();
+                        cmd.Parameters.Clear();
                     }
                 }
                 //cmd.CommandText = "insert into invoice set customer_lname = 'test', invoice_total = '100'";
