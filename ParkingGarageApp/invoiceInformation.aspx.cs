@@ -35,7 +35,7 @@ namespace ParkingGarageApp
             {
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "insert into invoice set customer_lname = (@1), customer_fname = (@2), invoice_pay_method = (@3), invoice_total = (@4), parkingspace_id = (@5)";
+                cmd.CommandText = "insert into invoice set customer_lname = (@1), customer_fname = (@2), invoice_pay_method = (@3), invoice_total = (@4), parkingspace_id = (@5), invoice_datetime = (@6)";
                 cmd.Parameters.AddWithValue("@1", lName);
                 cmd.Parameters.AddWithValue("@2", fName);
                 cmd.Parameters.AddWithValue("@3", payInfo);

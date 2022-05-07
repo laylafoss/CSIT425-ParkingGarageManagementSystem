@@ -11,6 +11,18 @@ namespace ParkingGarageApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                string myRefer = Request.UrlReferrer.ToString();
+                if (myRefer == "https://localhost:44394/monthlyInformation.aspx")
+                {
+                    
+                    HttpCookie monthly = new HttpCookie("Monthly");
+                    monthly.Value = "Yes";
+                    Response.Cookies.Add(monthly);
+                }
+                
+            }
 
         }
 

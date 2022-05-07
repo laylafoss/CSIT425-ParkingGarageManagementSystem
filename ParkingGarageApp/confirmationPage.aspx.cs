@@ -17,6 +17,10 @@ namespace ParkingGarageApp
         protected void exitBtn_Click(object sender, EventArgs e)
         {
             //brings you back to beginning
+            if (Request.Cookies["Monthly"] != null)
+            {
+                Response.Cookies["Monthly"].Expires = DateTime.Now.AddDays(-1);
+            }
             Response.Redirect("customerChoice.aspx");
         }
     }

@@ -44,6 +44,20 @@ namespace ParkingGarageApp
             }
             else
             {
+                HttpCookie cookie = new HttpCookie("Last");
+                HttpCookie firstCookie = new HttpCookie("First");
+                HttpCookie numberCookie = new HttpCookie("Number");
+                HttpCookie plate = new HttpCookie("Plate");
+                HttpCookie email = new HttpCookie("Email");
+                email.Value = emailTxt.Text;
+                cookie.Value = lastTxt.Text;
+                firstCookie.Value = firstTxt.Text;
+                numberCookie.Value = phoneNumberTxt.Text;
+                plate.Value = licenseTxt.Text;
+                Response.Cookies.Add(cookie);
+                Response.Cookies.Add(firstCookie);
+                Response.Cookies.Add(numberCookie);
+                Response.Cookies.Add(plate);
                 Response.Redirect("startingMap.aspx");
             }
         }

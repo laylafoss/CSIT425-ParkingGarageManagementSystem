@@ -14,6 +14,7 @@ namespace ParkingGarageApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             int currentBtn;
             string avail;
             DateTime now = DateTime.Now;
@@ -69,6 +70,8 @@ namespace ParkingGarageApp
             buttons[48] = btn49;
             buttons[49] = btn50;
 
+
+
             foreach (Button button in buttons)
             {
                 button.Visible = true;
@@ -95,7 +98,7 @@ namespace ParkingGarageApp
                         if (reader["parkingspace_exit"] != DBNull.Value)
                         {
                             DateTime d2 = reader.GetDateTime(1);
-                            if (DateTime.Compare(now,d2) > 0)
+                            if (DateTime.Compare(now, d2) > 0)
                             {
                                 updateDB(currentBtn, button);
                                 continue;
@@ -123,6 +126,61 @@ namespace ParkingGarageApp
                     }
                 }
             }
+
+            if (Request.Cookies["Monthly"] != null)
+            {
+                
+                Button[] btns = new Button[5];
+                btns[0] = btn1;
+                btns[1] = btn2;
+                btns[2] = btn3;
+                btns[3] = btn4;
+                btns[4] = btn5;
+                foreach (Button b in btns)
+                {
+                    string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+                    using (MySqlConnection conn = new MySqlConnection(connStr))
+                    {
+                        conn.Open();
+                        string sql = "select customer_fname from parkingspace where parkingspace_id > '100' and parkingspace_id < '106';";
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            if (dr["customer_fname"] != DBNull.Value)
+                            {
+                                b.BackColor = System.Drawing.Color.Red;
+                                b.Enabled = false;
+                                
+                            }
+                           
+                            else
+                            {
+                                b.Enabled = true;
+                                b.BackColor = System.Drawing.Color.SpringGreen;
+                                b.Click += btn1_Click;
+                            }
+                        }
+                    }
+                }
+                
+                //btn1.Enabled = true;
+                //btn2.Enabled = true;
+                //btn3.Enabled = true;
+                //btn4.Enabled = true;
+                //btn5.Enabled = true;
+                //btn1.BackColor = System.Drawing.Color.SpringGreen;
+                //btn2.BackColor = System.Drawing.Color.SpringGreen;
+                //btn3.BackColor = System.Drawing.Color.SpringGreen;
+                //btn4.BackColor = System.Drawing.Color.SpringGreen;
+                //btn5.BackColor = System.Drawing.Color.SpringGreen;
+                //btn1.Click += btn1_Click;
+                //btn2.Click += btn1_Click;
+                //btn3.Click += btn1_Click;
+                //btn4.Click += btn1_Click;
+                //btn5.Click += btn1_Click;
+            }
+
         }
 
         protected void btn1_Click(object sender, EventArgs e)
@@ -165,18 +223,36 @@ namespace ParkingGarageApp
 
         protected void updateDB(int id, Button btn)
         {
-            btn.Enabled = true;
-            btn.BackColor = System.Drawing.Color.Green;
-            btn.Click += btn1_Click;
-            string connStr2 = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            using (MySqlConnection conn = new MySqlConnection(connStr2))
+            if (id > 100 && id < 106)
             {
-                conn.Open();
+                btn.Enabled = false;
+                btn.BackColor = System.Drawing.Color.Red;
+                string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+                using (MySqlConnection conn = new MySqlConnection(connStr))
+                {
+                    conn.Open();
 
-                string sql = "update parkingspace set customer_lname = null, customer_fname = null, customer_plate = null, customer_phone = null, parkingspace_entry = null, parkingspace_exit = null where parkingspace_id = '" + id + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
+                    string sql = "update parkingspace set customer_lname = 'monthly', customer_fname = null, customer_plate = null, customer_phone = null, parkingspace_entry = null, parkingspace_exit = null where parkingspace_id = '" + id + "'";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+                }
             }
+            else
+            {
+                btn.Enabled = true;
+                btn.BackColor = System.Drawing.Color.Green;
+                btn.Click += btn1_Click;
+                string connStr2 = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+                using (MySqlConnection conn = new MySqlConnection(connStr2))
+                {
+                    conn.Open();
+
+                    string sql = "update parkingspace set customer_lname = null, customer_fname = null, customer_plate = null, customer_phone = null, parkingspace_entry = null, parkingspace_exit = null where parkingspace_id = '" + id + "'";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
         }
 
     }
