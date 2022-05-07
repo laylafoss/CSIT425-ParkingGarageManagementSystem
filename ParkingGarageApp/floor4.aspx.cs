@@ -126,6 +126,8 @@ namespace ParkingGarageApp
             string number = Request.Cookies["Number"].Value;
             string s = (sender as Button).Text;
             DateTime dateTime = DateTime.Now;
+            HttpCookie space = new HttpCookie("Space");
+            space.Value = s;
 
 
             string scon = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
@@ -143,7 +145,8 @@ namespace ParkingGarageApp
                 conn.Close();
             }
 
-            Response.Redirect("customerChoice.aspx");
+            Response.Cookies.Add(space);
+            Response.Redirect("invoiceInformation.aspx");
         }
     }
 }

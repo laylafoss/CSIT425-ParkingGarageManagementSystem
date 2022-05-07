@@ -45,7 +45,7 @@ namespace ParkingGarageApp
             }
             else
             {
-                HttpCookie cookie = new HttpCookie("Last");
+                HttpCookie cookie = new HttpCookie("Last"); 
                 HttpCookie firstCookie = new HttpCookie("First");
                 HttpCookie numberCookie = new HttpCookie("Number");
                 HttpCookie plate = new HttpCookie("Plate");

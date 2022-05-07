@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="invoiceInformation.aspx.cs" Inherits="ParkingGarageApp.invoiceInformation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="invoiceInformation.aspx.cs" Inherits="ParkingGarageApp.invoiceInformation" UnobtrusiveValidationMode="None" %>
 
 <!DOCTYPE html>
 
