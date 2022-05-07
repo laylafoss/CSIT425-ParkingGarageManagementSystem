@@ -13,7 +13,13 @@ namespace ParkingGarageApp
         protected void Page_Load(object sender, EventArgs e)
         {
             cardHolderNameTxt.Text = Request.Cookies["First"].Value + " " + Request.Cookies["Last"].Value;
-            
+            if (Request.Cookies["Monthly"] != null)
+            {
+                cardNumberTxt.Text = "Monthly, will be invoiced by admin";
+                cardNumberTxt.Enabled = false;
+                expirationDateTxt.Text = "0";
+                expirationDateTxt.Enabled = false;
+            }
         }
 
         protected void confirmBtn_Click(object sender, EventArgs e)
@@ -28,7 +34,13 @@ namespace ParkingGarageApp
             DateTime dtExit = DateTime.Parse(Request.Cookies["Date"].Value);
             dtExit = dtExit.AddHours(hours);
             
-
+            if (payInfo == "Monthly, will be invoiced by admin")
+            {
+                total = 0;
+                cardNumberTxt.Enabled=false;
+                expirationDateTxt.Text = "0";
+                expirationDateTxt.Enabled=false;
+            }
 
             string scon = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (MySqlConnection conn = new MySqlConnection(scon))
