@@ -25,7 +25,8 @@ namespace ParkingGarageApp
             string space = Request.Cookies["Space"].Value;
             string lName = Request.Cookies["Last"].Value;
             string fName = Request.Cookies["First"].Value;
-            
+            DateTime dtExit = DateTime.Parse(Request.Cookies["Date"].Value);
+            dtExit = dtExit.AddHours(hours);
             
 
 
@@ -40,7 +41,13 @@ namespace ParkingGarageApp
                 cmd.Parameters.AddWithValue("@3", payInfo);
                 cmd.Parameters.AddWithValue("@4", total);
                 cmd.Parameters.AddWithValue("@5", space);
+                cmd.Parameters.AddWithValue("@6", dtExit);
                 cmd.ExecuteNonQuery();
+                MySqlCommand cmd2 = conn.CreateCommand();
+                cmd2.CommandText = "update parkingspace set parkingspace_exit = (@1) where parkingspace_id = (@2)";
+                cmd2.Parameters.AddWithValue("@1", dtExit);
+                cmd2.Parameters.AddWithValue("@2", Int32.Parse(space));
+                cmd2.ExecuteNonQuery();
                 conn.Close();
             }
 

@@ -16,6 +16,7 @@ namespace ParkingGarageApp
         {
             int currentBtn;
             string avail;
+            DateTime now = DateTime.Now;
             Button[] buttons = new Button[50];
             buttons[0] = btn1;
             buttons[1] = btn2;
@@ -85,12 +86,21 @@ namespace ParkingGarageApp
                     currentBtn = int.Parse(button.Text);
 
                     conn.Open();
-                    string sql = "select customer_lname from parkingspace where parkingspace_id = '" + currentBtn + "';";
+                    string sql = "select customer_lname, parkingspace_exit from parkingspace where parkingspace_id = '" + currentBtn + "';";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
+                        if (reader["parkingspace_exit"] != DBNull.Value)
+                        {
+                            DateTime d2 = reader.GetDateTime(1);
+                            if (DateTime.Compare(now,d2) > 0)
+                            {
+                                updateDB(currentBtn, button);
+                                continue;
+                            }
+                        }
                         if (reader.IsDBNull(0))
                         {
                             button.Enabled = true;
@@ -125,6 +135,8 @@ namespace ParkingGarageApp
             DateTime dateTime = DateTime.Now;
             HttpCookie space = new HttpCookie("Space");
             space.Value = s;
+            HttpCookie dtCookie = new HttpCookie("Date");
+            dtCookie.Value = dateTime.ToString();
 
 
             string scon = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
@@ -141,6 +153,7 @@ namespace ParkingGarageApp
                 cmd.ExecuteNonQuery();
             }
 
+            Response.Cookies.Add(dtCookie);
             Response.Cookies.Add(space);
             Response.Redirect("invoiceInformation.aspx");
         }
@@ -148,6 +161,22 @@ namespace ParkingGarageApp
         protected void backBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("startingMap.aspx");
+        }
+
+        protected void updateDB(int id, Button btn)
+        {
+            btn.Enabled = true;
+            btn.BackColor = System.Drawing.Color.Green;
+            btn.Click += btn1_Click;
+            string connStr2 = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (MySqlConnection conn = new MySqlConnection(connStr2))
+            {
+                conn.Open();
+
+                string sql = "update parkingspace set customer_lname = null, customer_fname = null, customer_plate = null, customer_phone = null, parkingspace_entry = null, parkingspace_exit = null where parkingspace_id = '" + id + "'";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
         }
 
     }
