@@ -14,7 +14,7 @@ namespace ParkingGarageApp
             if (!IsPostBack)
             {
                 string myRefer = Request.UrlReferrer.ToString();
-                if (myRefer == "https://localhost:44394/monthlyInformation.aspx")
+                if (myRefer == "http://davidweinstein-001-site1.gtempurl.com/monthlyInformation.aspx")
                 {
                     
                     HttpCookie monthly = new HttpCookie("Monthly");
