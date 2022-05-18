@@ -36,6 +36,10 @@ namespace ParkingGarageApp
                 Label3.Text = "Please enter credit card information";
                 Label3.Visible = true;
 
+            } else if (cardNumberTxt.Text.Length < 12 || cardNumberTxt.Text.Length > 20 && cardNumberTxt.Text != "Monthly, will be invoiced by admin")
+            {
+                Label3.Text = "Card number must be between 13 and 19 digits only";
+                Label3.Visible = true;
             } else
             {
                 try
@@ -57,8 +61,7 @@ namespace ParkingGarageApp
                         cardNumberTxt.Enabled = false;
                         expirationDateTxt.Text = "0";
                         expirationDateTxt.Enabled = false;
-                    }
-
+                    } 
                     string scon = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
                     using (MySqlConnection conn = new MySqlConnection(scon))
                     {
