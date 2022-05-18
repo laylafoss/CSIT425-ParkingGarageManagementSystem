@@ -5,9 +5,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Globalization;
 
 namespace ParkingGarageApp
 {
+    public class ExpiredCardException : Exception
+    {
+        public ExpiredCardException() : base() { }
+        public ExpiredCardException(string message) : base(message) { }
+    }
     public partial class invoiceInformation : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -17,7 +23,7 @@ namespace ParkingGarageApp
             {
                 cardNumberTxt.Text = "Monthly, will be invoiced by admin";
                 cardNumberTxt.Enabled = false;
-                expirationDateTxt.Text = "0";
+                expirationDateTxt.Text = "12/29";
                 expirationDateTxt.Enabled = false;
             }
         }
@@ -36,11 +42,13 @@ namespace ParkingGarageApp
                 Label3.Text = "Please enter credit card information";
                 Label3.Visible = true;
 
-            } else if (cardNumberTxt.Text.Length < 12 || cardNumberTxt.Text.Length > 20 && cardNumberTxt.Text != "Monthly, will be invoiced by admin")
+            }
+            else if (cardNumberTxt.Text.Length < 12 || cardNumberTxt.Text.Length > 20 && cardNumberTxt.Text != "Monthly, will be invoiced by admin")
             {
                 Label3.Text = "Card number must be between 13 and 19 digits only";
                 Label3.Visible = true;
-            } else
+            }
+            else
             {
                 try
                 {
@@ -54,6 +62,15 @@ namespace ParkingGarageApp
                     DateTime dtExit = DateTime.Parse(Request.Cookies["Date"].Value);
                     dtExit = dtExit.AddHours(hours);
 
+                    DateTime expDate = DateTime.ParseExact(expirationDateTxt.Text, "MM/yy", CultureInfo.InvariantCulture);
+                    DateTime now = DateTime.Now;
+                    if (expDate < now)
+                    {
+                        throw new ExpiredCardException("Expired Card try another.");
+                    }
+
+
+
 
                     if (payInfo == "Monthly, will be invoiced by admin")
                     {
@@ -61,7 +78,7 @@ namespace ParkingGarageApp
                         cardNumberTxt.Enabled = false;
                         expirationDateTxt.Text = "0";
                         expirationDateTxt.Enabled = false;
-                    } 
+                    }
                     string scon = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
                     using (MySqlConnection conn = new MySqlConnection(scon))
                     {
@@ -85,9 +102,15 @@ namespace ParkingGarageApp
 
                     Response.Redirect("confirmationPage.aspx");
                 }
+                catch (ExpiredCardException ex)
+                {
+                    Label3.Text = "Expired card, please try another or turn around.";
+                    Label3.Visible = true;
+                } 
                 catch (Exception ex)
                 {
-                    Response.Write("There has been an error please contact customer support with the following message: " + ex.Message.ToString());
+                    Label3.Text = "You must use the format MM/YY for the expiration date.";
+                    Label3.Visible = true;
                 }
             }
 

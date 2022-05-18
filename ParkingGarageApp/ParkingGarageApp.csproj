@@ -197,7 +197,6 @@
     </Compile>
     <Compile Include="invoiceInformation.aspx.cs">
       <DependentUpon>invoiceInformation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="invoiceInformation.aspx.designer.cs">
       <DependentUpon>invoiceInformation.aspx</DependentUpon>
