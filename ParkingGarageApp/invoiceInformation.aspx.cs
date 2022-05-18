@@ -28,6 +28,14 @@ namespace ParkingGarageApp
             {
                 Label3.Text = "You must select the amount of hours to occupy the spot";
                 Label3.Visible = true;
+            }
+            else if (cardNumberTxt.Text == "")
+            {
+
+
+                Label3.Text = "Please enter credit card information";
+                Label3.Visible = true;
+
             } else
             {
                 try
@@ -41,11 +49,7 @@ namespace ParkingGarageApp
                     string fName = Request.Cookies["First"].Value;
                     DateTime dtExit = DateTime.Parse(Request.Cookies["Date"].Value);
                     dtExit = dtExit.AddHours(hours);
-                    if (payInfo == "")
-                    {
-                        Label3.Text = "Please enter credit card information";
-                        Label3.Visible = true;
-                    }
+
 
                     if (payInfo == "Monthly, will be invoiced by admin")
                     {
@@ -83,7 +87,7 @@ namespace ParkingGarageApp
                     Response.Write("There has been an error please contact customer support with the following message: " + ex.Message.ToString());
                 }
             }
-            
+
         }
     }
 }
